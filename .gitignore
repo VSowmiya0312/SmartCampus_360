@@ -1,8 +1,10 @@
+# VS Code
+.vscode/
 
-# Local XAMPP database configuration
+# PHP / XAMPP local configuration
 config/database.php
 
-# Temporary test/debug files
+# Temporary testing/debug files
 announcement_test.php
 db_test.php
 login_debug.php
@@ -10,3 +12,10 @@ login_test.php
 mysql-test.php
 reset_test_password.php
 test.php
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
