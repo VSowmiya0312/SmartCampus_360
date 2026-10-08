@@ -1,0 +1,1389 @@
+/* =========================================================
+   SMARTCAMPUS360 - COMPLETE STYLE SHEET
+   File: css/style.css
+========================================================= */
+
+
+/* =========================================================
+   1. RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1f2937;
+    background: #f5f7ff;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   2. GENERAL
+========================================================= */
+
+a {
+    text-decoration: none;
+}
+
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================================
+   3. NAVBAR
+========================================================= */
+
+.navbar {
+    width: 100%;
+    min-height: 72px;
+
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 255, 255, 0.98);
+
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.10);
+
+    position: relative;
+    z-index: 100;
+}
+
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: #312e81;
+
+    white-space: nowrap;
+}
+
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+.navbar nav a {
+    color: #374151;
+
+    padding: 10px 13px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+.navbar nav a:hover {
+    color: #4f46e5;
+    background: #eef2ff;
+}
+
+
+.navbar nav a.active {
+    color: #4f46e5;
+    background: #eef2ff;
+}
+
+
+.navbar nav a.login-btn {
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #4f46e5,
+        #7c3aed
+    );
+
+    padding: 10px 18px;
+
+    margin-left: 5px;
+}
+
+
+.navbar nav a.login-btn:hover {
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #3730a3,
+        #6d28d9
+    );
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   4. HERO SECTION
+========================================================= */
+
+.hero {
+    min-height: 680px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    text-align: center;
+}
+
+
+/* College image */
+
+.hero-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 1;
+}
+
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* Dark overlay */
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15, 23, 42, 0.82),
+            rgba(49, 46, 129, 0.68),
+            rgba(30, 64, 175, 0.55)
+        );
+
+    z-index: 2;
+}
+
+
+/* Hero content */
+
+.hero-content {
+    position: relative;
+
+    z-index: 3;
+
+    width: 92%;
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 50px 20px;
+}
+
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    margin-bottom: 18px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    border: 1px solid rgba(255, 255, 255, 0.30);
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    backdrop-filter: blur(8px);
+}
+
+
+.hero h1 {
+    color: white;
+
+    font-size: 52px;
+
+    line-height: 1.15;
+
+    margin-bottom: 20px;
+
+    font-weight: 800;
+}
+
+
+.hero h1 span {
+    display: block;
+
+    color: #fbbf24;
+}
+
+
+.hero-content > p {
+    max-width: 720px;
+
+    margin: 0 auto 20px;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   5. ANNOUNCEMENT BUTTON
+========================================================= */
+
+.announcement-main-btn {
+    display: inline-block;
+
+    padding: 13px 28px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f59e0b,
+            #ef4444
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+
+.announcement-main-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.30);
+}
+
+
+/* =========================================================
+   6. ANNOUNCEMENT FORM BOX
+========================================================= */
+
+.announcement-box {
+    display: none;
+
+    width: 100%;
+
+    max-width: 620px;
+
+    margin: 20px auto;
+
+    padding: 24px;
+
+    background: rgba(255, 255, 255, 0.98);
+
+    border-radius: 18px;
+
+    text-align: left;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.30);
+
+    animation: announcementOpen 0.3s ease;
+}
+
+
+@keyframes announcementOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.announcement-title {
+    color: #312e81;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    margin-bottom: 18px;
+}
+
+
+.announcement-box input,
+.announcement-box textarea {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    margin-bottom: 14px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: #1f2937;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+
+.announcement-box input:focus,
+.announcement-box textarea:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+
+.announcement-box textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+
+.announcement-actions {
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.publish-btn,
+.cancel-btn {
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.publish-btn {
+    flex: 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
+
+    color: white;
+}
+
+
+.publish-btn:hover {
+    transform: translateY(-2px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #3730a3,
+            #6d28d9
+        );
+}
+
+
+.cancel-btn {
+    background: #e5e7eb;
+
+    color: #374151;
+}
+
+
+.cancel-btn:hover {
+    background: #d1d5db;
+}
+
+
+/* =========================================================
+   7. ANNOUNCEMENT RESULT
+========================================================= */
+
+.announcement-result {
+    margin-top: 12px;
+
+    text-align: center;
+}
+
+
+.success-message {
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    background: #dcfce7;
+
+    color: #166534;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.error-message {
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    background: #fee2e2;
+
+    color: #991b1b;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.loading-message {
+    padding: 10px 12px;
+
+    color: #4338ca;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   8. LATEST ANNOUNCEMENT
+========================================================= */
+
+.home-announcement {
+    width: 100%;
+
+    max-width: 700px;
+
+    margin: 22px auto;
+
+    padding: 18px 22px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    color: #333;
+
+    border-left: 6px solid #f59e0b;
+
+    border-radius: 15px;
+
+    text-align: left;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.20);
+
+    backdrop-filter: blur(5px);
+}
+
+
+.announcement-heading {
+    color: #b45309;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    margin-bottom: 8px;
+}
+
+
+#homeAnnouncement h3 {
+    color: #312e81;
+
+    font-size: 19px;
+
+    margin-bottom: 6px;
+
+    line-height: 1.4;
+}
+
+
+#homeAnnouncement p {
+    color: #555;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   9. HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 22px;
+}
+
+
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 190px;
+
+    padding: 13px 22px;
+
+    border-radius: 30px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+
+.primary-btn {
+    background: white;
+
+    color: #4338ca;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.20);
+}
+
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.12);
+
+    border: 2px solid rgba(255, 255, 255, 0.75);
+
+    color: white;
+
+    backdrop-filter: blur(5px);
+}
+
+
+.secondary-btn:hover {
+    background: white;
+
+    color: #4338ca;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   10. COMMON SECTION
+========================================================= */
+
+.section {
+    padding: 75px 6%;
+
+    background: #ffffff;
+}
+
+
+.section-heading {
+    text-align: center;
+
+    max-width: 750px;
+
+    margin: 0 auto 45px;
+}
+
+
+.section-heading > span {
+    display: block;
+
+    font-size: 32px;
+
+    margin-bottom: 5px;
+}
+
+
+.section-heading h2 {
+    color: #1f2937;
+
+    font-size: 34px;
+
+    margin-bottom: 10px;
+
+    font-weight: 800;
+}
+
+
+.section-heading p {
+    color: #6b7280;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   11. FEATURE GRID
+========================================================= */
+
+.feature-grid {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.feature-card {
+    padding: 28px 22px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.07);
+
+    transition: all 0.3s ease;
+}
+
+
+.feature-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.12);
+
+    border-color: #c7d2fe;
+}
+
+
+.feature-icon {
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: #eef2ff;
+
+    font-size: 30px;
+}
+
+
+.feature-card h3 {
+    color: #312e81;
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+}
+
+
+.feature-card p {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   12. CAMPUS SERVICES SECTION
+========================================================= */
+
+.categories-section {
+    padding: 75px 6%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f5f3ff
+        );
+}
+
+
+.category-grid {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+
+.category-card {
+    padding: 25px 20px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.06);
+
+    transition: 0.3s;
+}
+
+
+.category-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.10);
+}
+
+
+.category-card span {
+    display: block;
+
+    font-size: 35px;
+
+    margin-bottom: 12px;
+}
+
+
+.category-card h3 {
+    color: #312e81;
+
+    font-size: 17px;
+
+    margin-bottom: 6px;
+}
+
+
+.category-card p {
+    color: #6b7280;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   13. HOW IT WORKS
+========================================================= */
+
+.steps {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+.step {
+    position: relative;
+
+    text-align: center;
+
+    padding: 25px 18px;
+}
+
+
+.step-number {
+    width: 55px;
+
+    height: 55px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 18px rgba(79, 70, 229, 0.25);
+}
+
+
+.step h3 {
+    color: #312e81;
+
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+
+.step p {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   14. CTA
+========================================================= */
+
+.cta {
+    margin: 0;
+
+    padding: 55px 7%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #312e81,
+            #4f46e5,
+            #7c3aed
+        );
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.cta h2 {
+    font-size: 32px;
+
+    margin-bottom: 8px;
+}
+
+
+.cta p {
+    color: rgba(255, 255, 255, 0.88);
+
+    font-size: 15px;
+}
+
+
+.cta-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 13px 24px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #4338ca;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    transition: 0.3s;
+}
+
+
+.cta-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================================
+   15. FOOTER
+========================================================= */
+
+footer {
+    background: #111827;
+
+    color: white;
+
+    padding: 35px 6% 20px;
+}
+
+
+.footer-content {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+
+.footer-content h3 {
+    font-size: 20px;
+
+    margin-bottom: 7px;
+}
+
+
+.footer-content p {
+    color: #9ca3af;
+
+    font-size: 14px;
+}
+
+
+.footer-links {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+}
+
+
+.footer-links a {
+    color: #d1d5db;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+
+.footer-links a:hover {
+    color: #a5b4fc;
+}
+
+
+.copyright {
+    text-align: center;
+
+    padding-top: 20px;
+
+    color: #6b7280;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   16. TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        padding: 15px 4%;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+
+    .navbar nav {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+
+    .hero {
+        min-height: 650px;
+    }
+
+
+    .hero h1 {
+        font-size: 44px;
+    }
+
+
+    .feature-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .category-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .steps {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   17. MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 15px;
+
+        align-items: center;
+    }
+
+
+    .logo {
+        font-size: 19px;
+    }
+
+
+    .navbar nav {
+        width: 100%;
+
+        gap: 4px;
+    }
+
+
+    .navbar nav a {
+        padding: 8px 7px;
+
+        font-size: 11px;
+    }
+
+
+    .navbar nav a.login-btn {
+        padding: 8px 10px;
+    }
+
+
+    .hero {
+        min-height: 720px;
+    }
+
+
+    .hero-content {
+        width: 95%;
+
+        padding: 35px 10px;
+    }
+
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+
+    .hero-content > p {
+        font-size: 15px;
+    }
+
+
+    .hero-badge {
+        font-size: 12px;
+    }
+
+
+    .announcement-main-btn {
+        font-size: 14px;
+
+        padding: 11px 22px;
+    }
+
+
+    .announcement-box {
+        padding: 18px;
+
+        max-width: 95%;
+    }
+
+
+    .announcement-title {
+        font-size: 18px;
+    }
+
+
+    .announcement-actions {
+        flex-direction: column;
+    }
+
+
+    .publish-btn,
+    .cancel-btn {
+        width: 100%;
+    }
+
+
+    .home-announcement {
+        max-width: 95%;
+
+        padding: 16px;
+    }
+
+
+    .hero-buttons {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+
+        max-width: 280px;
+    }
+
+
+    .section,
+    .categories-section {
+        padding: 55px 5%;
+    }
+
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+
+    .section-heading p {
+        font-size: 14px;
+    }
+
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+
+    .cta {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 45px 6%;
+    }
+
+
+    .cta h2 {
+        font-size: 27px;
+    }
+
+
+    .footer-content {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    .footer-links {
+        justify-content: center;
+    }
+
+}
+
+
+/* =========================================================
+   18. VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .navbar nav a {
+        font-size: 10px;
+
+        padding: 7px 5px;
+    }
+
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+
+    .hero {
+        min-height: 750px;
+    }
+
+
+    .home-announcement {
+        padding: 14px;
+    }
+
+
+    .announcement-heading {
+        font-size: 15px;
+    }
+
+
+    #homeAnnouncement h3 {
+        font-size: 17px;
+    }
+
+
+    #homeAnnouncement p {
+        font-size: 13px;
+    }
+
+}

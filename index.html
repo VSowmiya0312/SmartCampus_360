@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SmartCampus360 - Smart Campus Management</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: 100%;
+            background: white;
+
+            padding: 15px 5%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 3px 15px rgba(0, 0, 0, 0.10);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #172554;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #222;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        .login-btn {
+            background: #4f46e5;
+            color: white !important;
+
+            padding: 9px 18px;
+
+            border-radius: 7px;
+        }
+
+        .login-btn:hover {
+            background: #3730a3;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            min-height: 660px;
+
+            background-image:
+                linear-gradient(
+                    rgba(20, 40, 100, 0.60),
+                    rgba(25, 35, 80, 0.68)
+                ),
+                url("images/college.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 50px 20px;
+        }
+
+
+        .hero-content {
+            width: 100%;
+            max-width: 900px;
+
+            color: white;
+        }
+
+
+        .campus-label {
+
+            display: inline-block;
+
+            padding: 8px 18px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.18);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.35);
+
+            font-size: 13px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .hero h1 {
+
+            font-size: 50px;
+
+            line-height: 1.1;
+
+            margin-bottom: 15px;
+
+            font-weight: bold;
+        }
+
+
+        .hero h1 span {
+            color: #ffb718;
+        }
+
+
+        .hero-description {
+
+            max-width: 650px;
+
+            margin:
+                0 auto 28px;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           ANNOUNCEMENT BUTTON
+        ========================= */
+
+        .announcement-button {
+
+            position: relative;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            text-decoration: none;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff7a18,
+                    #ff4b2b
+                );
+
+            color: white;
+
+            padding: 14px 28px;
+
+            border-radius: 30px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 8px 20px
+                rgba(255, 87, 34, 0.35);
+
+            transition: 0.3s;
+        }
+
+
+        .announcement-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(255, 87, 34, 0.45);
+        }
+
+
+        /* Notification badge */
+
+        .notification-badge {
+
+            min-width: 22px;
+
+            height: 22px;
+
+            padding: 0 6px;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50px;
+
+            background: #ef4444;
+
+            color: white;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            border: 2px solid white;
+        }
+
+
+        .notification-badge.show {
+            display: inline-flex;
+        }
+
+
+        /* =========================
+           HERO ACTION BUTTONS
+        ========================= */
+
+        .hero-actions {
+
+            margin-top: 25px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .hero-action {
+
+            text-decoration: none;
+
+            padding: 12px 23px;
+
+            border-radius: 25px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .report-button {
+
+            background: white;
+
+            color: #4f46e5;
+        }
+
+
+        .track-button {
+
+            background:
+                rgba(255,255,255,0.15);
+
+            color: white;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.6);
+        }
+
+
+        .hero-action:hover {
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =========================
+           INTRODUCTION
+        ========================= */
+
+        .intro {
+
+            background: white;
+
+            padding: 70px 7%;
+
+            text-align: center;
+        }
+
+
+        .intro-icon {
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .section-title {
+
+            font-size: 30px;
+
+            color: #172554;
+
+            margin-bottom: 12px;
+        }
+
+
+        .section-description {
+
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #64748b;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+
+            background: white;
+
+            padding:
+                0 7% 70px;
+        }
+
+
+        .feature-grid {
+
+            max-width: 1100px;
+
+            margin: 35px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+
+        .feature-card {
+
+            background: white;
+
+            border:
+                1px solid #e2e8f0;
+
+            border-radius: 12px;
+
+            padding: 20px 15px;
+
+            text-align: center;
+
+            box-shadow:
+                0 5px 18px
+                rgba(0,0,0,0.06);
+
+            transition: 0.3s;
+        }
+
+
+        .feature-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(0,0,0,0.10);
+        }
+
+
+        .feature-icon {
+
+            width: 40px;
+            height: 40px;
+
+            margin:
+                0 auto 12px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 10px;
+
+            background: #eef2ff;
+
+            font-size: 22px;
+        }
+
+
+        .feature-card h3 {
+
+            color: #1e1b4b;
+
+            font-size: 16px;
+
+            margin-bottom: 9px;
+        }
+
+
+        .feature-card p {
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4f46e5,
+                    #7c3aed
+                );
+
+            color: white;
+
+            text-align: center;
+
+            padding: 60px 20px;
+        }
+
+
+        .cta h2 {
+
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .cta p {
+
+            margin-bottom: 22px;
+
+            font-size: 15px;
+        }
+
+
+        .cta a {
+
+            display: inline-block;
+
+            text-decoration: none;
+
+            background: white;
+
+            color: #4f46e5;
+
+            padding: 12px 25px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            background: #0f172a;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px 20px;
+        }
+
+
+        footer h3 {
+
+            margin-bottom: 8px;
+        }
+
+
+        footer p {
+
+            color: #cbd5e1;
+
+            font-size: 13px;
+
+            margin-bottom: 5px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .feature-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .hero h1 {
+
+                font-size: 42px;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .navbar {
+
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+
+            .nav-links {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 12px;
+            }
+
+
+            .hero {
+
+                min-height: 600px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 34px;
+            }
+
+
+            .feature-grid {
+
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🏫 SmartCampus360
+        </div>
+
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="report.html">
+                Report Issue
+            </a>
+
+            <a href="track.html">
+                Track Request
+            </a>
+
+            <a href="announcements.php">
+                Announcements
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+            <a
+                href="login.html"
+                class="login-btn"
+            >
+                Login
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+
+            <div class="campus-label">
+                🌐 Smart Campus Management
+            </div>
+
+
+            <h1>
+
+                Welcome to
+
+                <br>
+
+                <span>
+                    SmartCampus360
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                A simple and smart platform to report,
+                track and manage campus issues efficiently.
+
+            </p>
+
+
+            <!-- ONLY ANNOUNCEMENT BUTTON -->
+
+            <a
+                href="announcements.php"
+                class="announcement-button"
+            >
+
+                📢 Announcement
+
+                <span
+                    id="announcementBadge"
+                    class="notification-badge"
+                >
+                    0
+                </span>
+
+            </a>
+
+
+            <!-- OTHER HOME BUTTONS -->
+
+            <div class="hero-actions">
+
+                <a
+                    href="report.html"
+                    class="hero-action report-button"
+                >
+                    📝 Report an Issue
+                </a>
+
+
+                <a
+                    href="track.html"
+                    class="hero-action track-button"
+                >
+                    🔍 Track Request
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         INTRO
+    ========================= -->
+
+    <section class="intro">
+
+        <div class="intro-icon">
+            ✨
+        </div>
+
+
+        <h2 class="section-title">
+
+            Everything You Need
+
+        </h2>
+
+
+        <p class="section-description">
+
+            SmartCampus360 makes campus issue management
+            simple, transparent and efficient.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         FEATURES
+    ========================= -->
+
+    <section class="features">
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📝
+                </div>
+
+                <h3>
+                    Report Issues
+                </h3>
+
+                <p>
+                    Quickly report problems related to
+                    classrooms, hostels, Wi-Fi, electricity,
+                    cleaning and other campus facilities.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    Track Requests
+                </h3>
+
+                <p>
+                    Use your unique Track ID to monitor
+                    your request from submission until
+                    completion.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    👨‍🔧
+                </div>
+
+                <h3>
+                    Staff Assignment
+                </h3>
+
+                <p>
+                    Campus administrators can assign
+                    reported issues to the appropriate
+                    maintenance staff.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔔
+                </div>
+
+                <h3>
+                    Notifications
+                </h3>
+
+                <p>
+                    Receive updates when your request is
+                    assigned, processed or completed.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CTA
+    ========================= -->
+
+    <section class="cta">
+
+        <h2>
+            Need Help on Campus?
+        </h2>
+
+
+        <p>
+            Report your campus issue and track its progress easily.
+        </p>
+
+
+        <a href="report.html">
+            📝 Report an Issue
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <h3>
+            🏫 SmartCampus360
+        </h3>
+
+
+        <p>
+            Smart Campus Management System
+        </p>
+
+
+        <p>
+            © 2026 SmartCampus360. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         ANNOUNCEMENT NOTIFICATION
+    ========================= -->
+
+    <script>
+
+        function loadAnnouncementCount() {
+
+            fetch("announcement_count.php")
+
+                .then(function(response) {
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            "Could not load announcement count"
+                        );
+
+                    }
+
+                    return response.json();
+
+                })
+
+                .then(function(data) {
+
+                    const badge =
+                        document.getElementById(
+                            "announcementBadge"
+                        );
+
+
+                    if (
+                        data.success &&
+                        data.count > 0
+                    ) {
+
+                        badge.textContent =
+                            data.count;
+
+                        badge.classList.add(
+                            "show"
+                        );
+
+                    } else {
+
+                        badge.classList.remove(
+                            "show"
+                        );
+
+                    }
+
+                })
+
+                .catch(function(error) {
+
+                    console.log(
+                        "Announcement notification error:",
+                        error
+                    );
+
+                });
+
+        }
+
+
+        loadAnnouncementCount();
+
+    </script>
+
+
+</body>
+
+</html>

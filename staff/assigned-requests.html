@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Assigned Requests - SmartCampus360</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">🏫 SmartCampus360</div>
+
+    <nav>
+
+        <a href="../index.html">🏠 Home</a>
+        <a href="../report.html">📝 Report Issue</a>
+        <a href="../track.html">🔍 Track Request</a>
+        <a href="../announcements.html">📢 Announcements</a>
+        <a href="../contact.html">📞 Contact</a>
+
+        <a href="dashboard.html">📊 Dashboard</a>
+
+    </nav>
+
+</header>
+
+<main class="page-container">
+
+    <h1>📋 Assigned Requests</h1>
+
+    <div id="requests"></div>
+
+</main>
+
+<script src="../js/main.js"></script>
+
+<script>
+
+const requests = getRequests();
+
+const container =
+    document.getElementById("requests");
+
+const assigned =
+    requests.filter(
+        request =>
+            request.assignedStaff !== "Not Assigned"
+    );
+
+if (assigned.length === 0) {
+
+    container.innerHTML = `
+        <div class="card">
+            <h2>No Assigned Requests</h2>
+        </div>
+    `;
+
+} else {
+
+    assigned.forEach(request => {
+
+        container.innerHTML += `
+
+            <div class="card">
+
+                <h2>${request.id}</h2>
+
+                <p>
+                    Category:
+                    ${request.category}
+                </p>
+
+                <p>
+                    Location:
+                    ${request.location}
+                </p>
+
+                <p>
+                    Staff:
+                    ${request.assignedStaff}
+                </p>
+
+                <p>
+                    Status:
+                    ${request.status}
+                </p>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

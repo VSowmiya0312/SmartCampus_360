@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Reports - SmartCampus360</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">🏫 SmartCampus360</div>
+
+    <nav>
+
+        <a href="../index.html">🏠 Home</a>
+        <a href="../report.html">📝 Report Issue</a>
+        <a href="../track.html">🔍 Track Request</a>
+        <a href="../announcements.html">📢 Announcements</a>
+        <a href="../contact.html">📞 Contact</a>
+
+        <a href="dashboard.html">📊 Dashboard</a>
+
+    </nav>
+
+</header>
+
+<main class="page-container">
+
+    <h1>📈 Request Reports</h1>
+
+    <div class="dashboard-grid">
+
+        <div class="card">
+
+            <h2 id="total">0</h2>
+
+            <p>Total Requests</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2 id="pending">0</h2>
+
+            <p>Pending Requests</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2 id="progress">0</h2>
+
+            <p>In Progress</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2 id="completed">0</h2>
+
+            <p>Completed</p>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script src="../js/main.js"></script>
+
+<script>
+
+const requests = getRequests();
+
+document.getElementById("total").textContent =
+    requests.length;
+
+document.getElementById("pending").textContent =
+    requests.filter(
+        r => r.status === "Submitted"
+    ).length;
+
+document.getElementById("progress").textContent =
+    requests.filter(
+        r => r.status === "In Progress"
+    ).length;
+
+document.getElementById("completed").textContent =
+    requests.filter(
+        r => r.status === "Completed"
+    ).length;
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,750 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - SmartCampus360</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            min-height: 100vh;
+
+            background-image:
+                linear-gradient(
+                    rgba(20, 40, 100, 0.60),
+                    rgba(25, 35, 80, 0.68)
+                ),
+                url("../images/college.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            padding: 30px 20px;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* HEADER */
+
+        .header {
+            background: rgba(255, 255, 255, 0.96);
+
+            border-radius: 20px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .header h1 {
+            color: #173b8f;
+
+            font-size: 32px;
+
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #555;
+
+            font-size: 16px;
+        }
+
+        /* WELCOME */
+
+        .welcome {
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 18px;
+
+            padding: 20px 25px;
+
+            margin-bottom: 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 6px 20px rgba(0, 0, 0, 0.20);
+        }
+
+        .welcome h2 {
+            color: #173b8f;
+
+            font-size: 23px;
+
+            margin-bottom: 7px;
+        }
+
+        .welcome p {
+            color: #666;
+
+            font-size: 15px;
+        }
+
+        /* STATISTICS */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.96);
+
+            border-radius: 17px;
+
+            padding: 22px;
+
+            text-align: center;
+
+            box-shadow:
+                0 7px 20px rgba(0, 0, 0, 0.20);
+
+            transition: 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            font-size: 35px;
+
+            margin-bottom: 8px;
+        }
+
+        .stat-number {
+            font-size: 30px;
+
+            font-weight: bold;
+
+            color: #173b8f;
+
+            margin-bottom: 5px;
+        }
+
+        .stat-title {
+            color: #555;
+
+            font-size: 15px;
+        }
+
+        /* SECTION TITLE */
+
+        .section-title {
+            color: white;
+
+            text-align: center;
+
+            font-size: 25px;
+
+            margin-bottom: 18px;
+
+            text-shadow:
+                1px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        /* OPERATIONS */
+
+        .operations {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-bottom: 30px;
+        }
+
+        .operation-card {
+            background: rgba(255, 255, 255, 0.96);
+
+            border-radius: 17px;
+
+            padding: 25px 18px;
+
+            text-align: center;
+
+            box-shadow:
+                0 7px 20px rgba(0, 0, 0, 0.20);
+
+            transition: 0.3s;
+        }
+
+        .operation-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 10px 28px rgba(0, 0, 0, 0.28);
+        }
+
+        .operation-icon {
+            font-size: 42px;
+
+            margin-bottom: 12px;
+        }
+
+        .operation-card h3 {
+            color: #173b8f;
+
+            margin-bottom: 8px;
+
+            font-size: 19px;
+        }
+
+        .operation-card p {
+            color: #666;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            margin-bottom: 15px;
+        }
+
+        .operation-btn {
+            display: inline-block;
+
+            background: #173b8f;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 18px;
+
+            border-radius: 9px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .operation-btn:hover {
+            background: #0d2868;
+
+            transform: translateY(-2px);
+        }
+
+        /* BOTTOM */
+
+        .bottom-section {
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 18px;
+
+            padding: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 7px 20px rgba(0, 0, 0, 0.20);
+        }
+
+        .logout-btn {
+            display: inline-block;
+
+            background: #dc3545;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 12px 25px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #b52a37;
+
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+
+        .footer {
+            color: white;
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            font-size: 14px;
+
+            text-shadow:
+                1px 2px 4px black;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .stats {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .operations {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 20px 10px;
+            }
+
+            .container {
+                width: 100%;
+            }
+
+            .header h1 {
+                font-size: 26px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .operations {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>
+            🏫 SmartCampus360
+        </h1>
+
+        <p>
+            Admin Management Dashboard
+        </p>
+
+    </div>
+
+
+    <!-- WELCOME -->
+
+    <div class="welcome">
+
+        <h2>
+            👋 Welcome, Admin
+        </h2>
+
+        <p>
+            Manage campus requests, students, staff and announcements from one place.
+        </p>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="stats">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📋
+            </div>
+
+            <div class="stat-number">
+                12
+            </div>
+
+            <div class="stat-title">
+                Total Requests
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ⏳
+            </div>
+
+            <div class="stat-number">
+                5
+            </div>
+
+            <div class="stat-title">
+                Pending Requests
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔵
+            </div>
+
+            <div class="stat-number">
+                3
+            </div>
+
+            <div class="stat-title">
+                Work In Progress
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ✅
+            </div>
+
+            <div class="stat-number">
+                4
+            </div>
+
+            <div class="stat-title">
+                Completed Requests
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                👨‍🎓
+            </div>
+
+            <div class="stat-number">
+                25
+            </div>
+
+            <div class="stat-title">
+                Total Users
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                👨‍🔧
+            </div>
+
+            <div class="stat-number">
+                6
+            </div>
+
+            <div class="stat-title">
+                Total Staff
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ADMIN OPERATIONS -->
+
+    <h2 class="section-title">
+        ⚙️ Admin Operations
+    </h2>
+
+
+    <div class="operations">
+
+
+        <!-- MANAGE REQUESTS -->
+
+        <div class="operation-card">
+
+            <div class="operation-icon">
+                📋
+            </div>
+
+            <h3>
+                Manage Requests
+            </h3>
+
+            <p>
+                View campus requests and assign them to staff members.
+            </p>
+
+            <a
+                href="requests.php"
+                class="operation-btn"
+            >
+                Manage Requests
+            </a>
+
+        </div>
+
+
+        <!-- MANAGE USERS -->
+
+        <div class="operation-card">
+
+            <div class="operation-icon">
+                👨‍🎓
+            </div>
+
+            <h3>
+                Manage Users
+            </h3>
+
+            <p>
+                View and manage registered student and user accounts.
+            </p>
+
+            <a
+                href="users.php"
+                class="operation-btn"
+            >
+                Manage Users
+            </a>
+
+        </div>
+
+
+        <!-- MANAGE STAFF -->
+
+        <div class="operation-card">
+
+            <div class="operation-icon">
+                👨‍🔧
+            </div>
+
+            <h3>
+                Manage Staff
+            </h3>
+
+            <p>
+                Add, view and manage campus maintenance staff.
+            </p>
+
+            <a
+                href="staff.php"
+                class="operation-btn"
+            >
+                Manage Staff
+            </a>
+
+        </div>
+
+
+        <!-- LOCATIONS -->
+
+        <div class="operation-card">
+
+            <div class="operation-icon">
+                📍
+            </div>
+
+            <h3>
+                Manage Locations
+            </h3>
+
+            <p>
+                Manage campus locations used for service requests.
+            </p>
+
+            <a
+                href="locations.php"
+                class="operation-btn"
+            >
+                Locations
+            </a>
+
+        </div>
+
+
+        <!-- ANNOUNCEMENTS -->
+
+        <div class="operation-card">
+
+            <div class="operation-icon">
+                📢
+            </div>
+
+            <h3>
+                Announcements
+            </h3>
+
+            <p>
+                Create and manage important campus announcements.
+            </p>
+
+            <a
+                href="announcements.php"
+                class="operation-btn"
+            >
+                Announcements
+            </a>
+
+        </div>
+
+
+        <!-- FEEDBACK -->
+
+        <div class="operation-card">
+
+            <div class="operation-icon">
+                💬
+            </div>
+
+            <h3>
+                Feedback
+            </h3>
+
+            <p>
+                View feedback submitted by students.
+            </p>
+
+            <a
+                href="feedback.php"
+                class="operation-btn"
+            >
+                View Feedback
+            </a>
+
+        </div>
+
+
+        <!-- REPORTS -->
+
+        <div class="operation-card">
+
+            <div class="operation-icon">
+                📊
+            </div>
+
+            <h3>
+                Reports
+            </h3>
+
+            <p>
+                View campus service statistics and request reports.
+            </p>
+
+            <a
+                href="reports.php"
+                class="operation-btn"
+            >
+                View Reports
+            </a>
+
+        </div>
+
+
+        <!-- HOME -->
+
+        <div class="operation-card">
+
+            <div class="operation-icon">
+                🏠
+            </div>
+
+            <h3>
+                Home Page
+            </h3>
+
+            <p>
+                Return to the SmartCampus360 main website.
+            </p>
+
+            <a
+                href="../index.html"
+                class="operation-btn"
+            >
+                Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- LOGOUT -->
+
+    <div class="bottom-section">
+
+        <a
+            href="../login.html"
+            class="logout-btn"
+        >
+            🚪 Logout
+        </a>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        SmartCampus360 © 2026
+        <br>
+        Campus Service Management System
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
+```

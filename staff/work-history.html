@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Work History - SmartCampus360</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">🏫 SmartCampus360</div>
+
+    <nav>
+
+        <a href="../index.html">🏠 Home</a>
+        <a href="../report.html">📝 Report Issue</a>
+        <a href="../track.html">🔍 Track Request</a>
+        <a href="../announcements.html">📢 Announcements</a>
+        <a href="../contact.html">📞 Contact</a>
+
+        <a href="dashboard.html">📊 Dashboard</a>
+
+    </nav>
+
+</header>
+
+<main class="page-container">
+
+    <h1>📚 Work History</h1>
+
+    <div id="history"></div>
+
+</main>
+
+<script src="../js/main.js"></script>
+
+<script>
+
+const requests = getRequests();
+
+const completed =
+    requests.filter(
+        request => request.status === "Completed"
+    );
+
+const history =
+    document.getElementById("history");
+
+if (completed.length === 0) {
+
+    history.innerHTML = `
+        <div class="card">
+            <h2>No Completed Requests</h2>
+        </div>
+    `;
+
+} else {
+
+    completed.forEach(request => {
+
+        history.innerHTML += `
+
+            <div class="card">
+
+                <h2>${request.id}</h2>
+
+                <p>
+                    ${request.category}
+                </p>
+
+                <p>
+                    ${request.location}
+                </p>
+
+                <strong>✅ Completed</strong>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

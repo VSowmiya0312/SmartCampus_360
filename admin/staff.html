@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Staff Management - SmartCampus360</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #667eea,
+            #764ba2
+        );
+
+    padding: 30px 15px;
+}
+
+.container {
+
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.header {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.15);
+
+}
+
+.header h1 {
+
+    margin: 0 0 8px;
+
+    color: #333;
+
+}
+
+.header p {
+
+    color: #777;
+
+    margin: 0;
+}
+
+.staff-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.staff-card {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,0.12);
+
+}
+
+.staff-icon {
+
+    font-size: 45px;
+
+    margin-bottom: 10px;
+
+}
+
+.staff-card h2 {
+
+    margin: 5px 0 8px;
+
+    color: #333;
+
+}
+
+.department {
+
+    color: #667eea;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+
+}
+
+.info {
+
+    color: #555;
+
+    line-height: 1.8;
+
+}
+
+.status {
+
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #e8f7ed;
+
+    color: #218838;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+
+}
+
+.back {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 12px 20px;
+
+    background: #333;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+}
+
+.empty {
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    color: #777;
+
+}
+
+.loading {
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 20px;
+
+}
+
+@media(max-width:700px) {
+
+    .staff-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>
+            👨‍🔧 Staff Management
+        </h1>
+
+        <p>
+            View SmartCampus360 campus support staff.
+        </p>
+
+    </div>
+
+
+    <div
+        id="staffContainer"
+        class="staff-grid"
+    >
+
+        <div class="loading">
+            Loading staff...
+        </div>
+
+    </div>
+
+
+    <a
+        href="dashboard.html"
+        class="back"
+    >
+        ← Back to Admin Dashboard
+    </a>
+
+</div>
+
+
+<script>
+
+fetch("staff_list.php")
+
+.then(function(response) {
+
+    if (!response.ok) {
+
+        throw new Error(
+            "Unable to load staff."
+        );
+
+    }
+
+    return response.json();
+
+})
+
+.then(function(staff) {
+
+    const container =
+        document.getElementById(
+            "staffContainer"
+        );
+
+    container.innerHTML = "";
+
+    if (staff.length === 0) {
+
+        container.innerHTML = `
+            <div class="empty">
+                <h2>👨‍🔧 No Staff Found</h2>
+                <p>
+                    No staff members are available
+                    in the database.
+                </p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    staff.forEach(function(member) {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "staff-card";
+
+        card.innerHTML = `
+
+            <div class="staff-icon">
+                👨‍🔧
+            </div>
+
+            <h2>
+                ${escapeHtml(member.name)}
+            </h2>
+
+            <div class="department">
+                ${escapeHtml(member.department || "General")}
+            </div>
+
+            <div class="info">
+
+                📧
+                ${escapeHtml(member.email)}
+                <br>
+
+                📞
+                ${escapeHtml(member.phone || "Not available")}
+                <br>
+
+                🆔 Staff ID:
+                ${escapeHtml(String(member.id))}
+
+                <br>
+
+                <span class="status">
+                    ${escapeHtml(member.status)}
+                </span>
+
+            </div>
+
+        `;
+
+        container.appendChild(card);
+
+    });
+
+})
+
+.catch(function(error) {
+
+    console.error(error);
+
+    document.getElementById(
+        "staffContainer"
+    ).innerHTML = `
+
+        <div class="empty">
+
+            <h2>
+                ❌ Unable to Load Staff
+            </h2>
+
+            <p>
+                Please check that Apache,
+                MySQL and the database are running.
+            </p>
+
+        </div>
+
+    `;
+
+});
+
+
+/* =========================
+   SECURITY
+========================= */
+
+function escapeHtml(value) {
+
+    return String(value)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Contact - SmartCampus360</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        body {
+            min-height: 100vh;
+
+            background-image:
+                linear-gradient(
+                    rgba(20, 40, 100, 0.60),
+                    rgba(25, 35, 80, 0.68)
+                ),
+                url("images/college.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg,#4f46e5,#764ba2);
+            padding: 15px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 9px 14px;
+            border-radius: 7px;
+        }
+
+        .navbar a:hover {
+            background: white;
+            color: #4f46e5;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .contact-container h1 {
+            text-align: center;
+            color: #4f46e5;
+            margin-bottom: 30px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 22px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.08);
+        }
+
+        .contact-card .icon {
+            font-size: 35px;
+        }
+
+        .contact-card h3 {
+            color: #4f46e5;
+            margin: 8px 0;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,.08);
+        }
+
+        .contact-form label {
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 7px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+        }
+
+        .contact-form textarea {
+            height: 120px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 12px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #message {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        @media(max-width:600px) {
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">
+        🏫 SmartCampus360
+    </div>
+
+    <div>
+
+        <a href="index.html">🏠 Home</a>
+
+    </div>
+
+</header>
+
+
+<div class="contact-container">
+
+    <h1>📞 Contact Us</h1>
+
+
+    <div class="contact-grid">
+
+
+        <div class="contact-card">
+
+            <div class="icon">
+                📧
+            </div>
+
+            <h3>Email</h3>
+
+            <p>
+                support@smartcampus360.com
+            </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="icon">
+                📞
+            </div>
+
+            <h3>Phone</h3>
+
+            <p>
+                +91 98765 43210
+            </p>
+
+        </div>
+
+
+        <div class="contact-card">
+
+            <div class="icon">
+                📍
+            </div>
+
+            <h3>Campus Office</h3>
+
+            <p>
+                Administration Block
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="contact-form">
+
+        <div id="message"></div>
+
+
+        <form id="contactForm">
+
+
+            <label>Name</label>
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required>
+
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required>
+
+
+            <label>Message</label>
+
+            <textarea
+                id="userMessage"
+                placeholder="Enter your message"
+                required></textarea>
+
+
+            <button type="submit">
+                Send Message
+            </button>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+
+document
+    .getElementById("contactForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById("name").value;
+
+
+        document.getElementById("message").innerHTML = `
+
+            <p style="color:green;">
+
+                ✅ Thank you, ${name}!
+
+                Your message has been submitted
+                successfully.
+
+            </p>
+
+        `;
+
+
+        document
+            .getElementById("contactForm")
+            .reset();
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

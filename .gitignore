@@ -1,0 +1,12 @@
+
+# Local XAMPP database configuration
+config/database.php
+
+# Temporary test/debug files
+announcement_test.php
+db_test.php
+login_debug.php
+login_test.php
+mysql-test.php
+reset_test_password.php
+test.php

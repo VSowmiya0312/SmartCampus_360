@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Update Request - SmartCampus360</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">🏫 SmartCampus360</div>
+
+    <nav>
+
+        <a href="../index.html">🏠 Home</a>
+        <a href="../report.html">📝 Report Issue</a>
+        <a href="../track.html">🔍 Track Request</a>
+        <a href="../announcements.html">📢 Announcements</a>
+        <a href="../contact.html">📞 Contact</a>
+
+        <a href="dashboard.html">📊 Dashboard</a>
+
+    </nav>
+
+</header>
+
+<main class="page-container">
+
+    <div class="form-card">
+
+        <h1>🔧 Update Request</h1>
+
+        <form>
+
+            <label>Track ID</label>
+
+            <input
+                type="text"
+                id="trackID"
+                placeholder="SCR1001">
+
+            <label>Status</label>
+
+            <select id="status">
+
+                <option>In Progress</option>
+                <option>Completed</option>
+
+            </select>
+
+            <button
+                type="button"
+                class="primary-btn"
+                onclick="updateStatus()">
+
+                Update Status
+
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+<script src="../js/main.js"></script>
+
+<script>
+
+function updateStatus() {
+
+    const id =
+        document.getElementById("trackID").value;
+
+    const status =
+        document.getElementById("status").value;
+
+    const request =
+        getRequestByID(id);
+
+    if (!request) {
+
+        alert("Request not found.");
+
+        return;
+    }
+
+    updateRequestStatus(id, status);
+
+    alert("Request updated successfully.");
+
+}
+
+</script>
+
+</body>
+</html>
